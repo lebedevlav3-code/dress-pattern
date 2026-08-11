@@ -19,19 +19,25 @@
 
 - [x] Полный рукав втачной как отдельная деталь — `models/sleeve.py`, пресеты, футляр+рукав
 - [x] Сплайны проймы/горловины ЕМКО — `armscye.py` + обновлённый `sheath_dress.py`
-- [ ] Push в origin dress-pattern + PR (**блокер: write access**)
+- [x] Push в origin dress-pattern + PR — [#4](https://github.com/lebedevlav3-code/dress-pattern/pull/4) merged 2026-08-11
+
+### Офлайн-приёмка P0 (владелец, не код)
+
+- [ ] Распечатать `smoke_sleeve_set_in_long` / `smoke_dress_sheath_with_sleeve` (test square 5×5)
+- [ ] Макет на ткани; контрольные мерки **±1–1.5 см**
+- [ ] Зафиксировать отклонения → правки формул агентом
 
 ## P1 — AI / MTM OpenRouter
 
 | ID         | Задача                                                 | Статус                            |
 | ---------- | ------------------------------------------------------ | --------------------------------- |
-| **AI-1.1** | OpenRouter client + PatternSpec; invalid → ошибка      | ✅ (без ключа — пресеты)          |
+| **AI-1.1** | OpenRouter client + PatternSpec; invalid → ошибка      | ✅ (ключ в локальном `.env`)      |
 | **AI-1.2** | Текст+мерки → spec → PDF. Юбка прямая/трапеция, футляр | ✅ юбка+футляр+рукав; ⏳ футболка |
 | **AI-1.3** | Vision 1–3 фото → editable PatternSpec                 | ⏳ бэклог                         |
 | **AI-1.4** | Консультант по узлам / карточки + «куратору»           | ⏳ бэклог (после контента)        |
 | **AI-1.5** | Автопроверки spec + квоты OpenRouter                   | ⏳ бэклог                         |
 
-**Нужен от владельца (не код):** `OPENROUTER_API_KEY` в env CAD.
+**Ключ:** лежит в gitignored `.env` (зеркало + локальный clone). Live smoke 2026-08-11: `configured=True`, ответ API **403 security policy** — проверить кабинет OpenRouter (кредиты / policy), не код.
 
 ## P2 — ЛК ученицы — бэклог
 
@@ -58,6 +64,7 @@ CLO/Lectra; своя соцсеть; «идеальная посадка без 
 
 ## Блокеры (нужно действие владельца)
 
-1. Write access Cloud Agent / cursor[bot] → `lebedevlav3-code/dress-pattern`
-2. (Опц.) `OPENROUTER_API_KEY`
-3. Офлайн-валидация макета по критерию P0
+1. ~~Write access → dress-pattern~~ ✅ (#4 merged)
+2. Офлайн-валидация макета по критерию P0 (см. чеклист выше)
+3. OpenRouter: разобрать 403 security policy / кредиты (ключ уже в `.env`)
+4. Реальное ТЗ МК в Pattern Studio (`/admin/patterns/briefs`)
